@@ -40,6 +40,11 @@ module Opscode
         str << ' -u root '
         node['mysql']['server_root_password'].empty? ? str << ' < /etc/mysql_grants.sql' : str << " -p#{node['mysql']['server_root_password']} < /etc/mysql_grants.sql"
       end
+      def install_dsn_cmd
+        str = '/usr/bin/mysql'
+        str << ' -u root '
+        node['mysql']['server_root_password'].empty? ? str << ' < /etc/mysql_percona-dsn.sql' : str << " -p#{node['mysql']['server_root_password']} < /etc/mysql_percona-dsn.sql"
+      end
     end
   end
 end
