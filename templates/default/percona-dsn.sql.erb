@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS percona;
+USE percona
+CREATE TABLE IF NOT EXISTS `dsns` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT NULL,
+  `dsn` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+

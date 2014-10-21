@@ -1,0 +1,9 @@
+<%= node['mysql']['server']['preseed'] %>       percona-server-server/root_password      select <%= node['mysql']['server_root_password'] %>
+<%= node['mysql']['server']['preseed'] %>         percona-server-server/root_password_again        select <%= node['mysql']['server_root_password'] %>
+<%= node['mysql']['server']['preseed'] %>         percona-server-server/error_setting_password     boolean false
+<%= node['mysql']['server']['preseed'] %>         percona-server-server/password_mismatch  boolean false
+<%= node['mysql']['server']['preseed'] %>         percona-server-server/no_upgrade_when_using_ndb	error
+<%= node['mysql']['server']['preseed'] %>         <%= node['mysql']['server']['preseed'] %>/really_downgrade       boolean false
+<%= node['mysql']['server']['preseed'] %>        <%= node['mysql']['server']['preseed'] %>/start_on_boot  boolean true
+<%= node['mysql']['server']['preseed'] %>         <%= node['mysql']['server']['preseed'] %>/nis_warning    note
+<%= node['mysql']['server']['preseed'] %>         <%= node['mysql']['server']['preseed'] %>/postrm_remove_databases        boolean false
