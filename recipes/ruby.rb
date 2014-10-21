@@ -25,23 +25,23 @@ include_recipe 'build-essential::default'
 include_recipe 'mysql::client'
 
 loaded_recipes = if run_context.respond_to?(:loaded_recipes)
-                   run_context.loaded_recipes
-                 else
-                   node.run_state[:seen_recipes]
-                 end
+			 run_context.loaded_recipes
+		 else
+			 node.run_state[:seen_recipes]
+		 end
 
 if loaded_recipes.include?('mysql::percona_repo')
-  case node['platform_family']
-  when 'debian'
-    resources('apt_repository[percona]').run_action(:add)
-  when 'rhel'
-    resources('yum_key[RPM-GPG-KEY-percona]').run_action(:add)
-    resources('yum_repository[percona]').run_action(:add)
-  end
+	case node['platform_family']
+	when 'debian'
+		resources('apt_repository[percona]').run_action(:add)
+	when 'rhel'
+		resources('yum_key[RPM-GPG-KEY-percona]').run_action(:add)
+		resources('yum_repository[percona]').run_action(:add)
+	end
 end
 
 node['mysql']['client']['packages'].each do |name|
-  resources("package[#{name}]").run_action(:install)
+	resources("package[#{name}]").run_action(:install)
 end
 
 chef_gem 'mysql'
