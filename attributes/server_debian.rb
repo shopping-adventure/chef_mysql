@@ -16,7 +16,7 @@ when 'debian'
 		default['mysql']['server']['packages'] = %w{  percona-server-server-5.5 percona-server-client-5.5 percona-server-common-5.5 apparmor-utils percona-nagios-plugins percona-toolkit }
 		default['mysql']['server']['preseed'] = 'percona-server-server-5.5'
 	when 'percona-cluster'
-		default['mysql']['server']['packages'] = %w{ percona-xtradb-cluster-server-5.5 percona-xtrabackup percona-xtradb-cluster-client-5.5 percona-xtradb-cluster-common-5.5 percona-xtradb-cluster-galera-2.x apparmor-utils percona-nagios-plugins percona-toolkit }
+		default['mysql']['server']['packages'] = %w{ percona-xtradb-cluster-galera-2.x percona-xtradb-cluster-server-5.5 percona-xtrabackup percona-xtradb-cluster-client-5.5 percona-xtradb-cluster-common-5.5 apparmor-utils percona-nagios-plugins percona-toolkit }
 		default['mysql']['server']['preseed'] = 'percona-server-server-5.5'
 	end
 	default['mysql']['server']['slow_query_log']       = 1
