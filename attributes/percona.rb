@@ -1,4 +1,7 @@
-if ( node['mysql']['server']['type'] == "percona-cluster" )
+default['mysql']['percona']['apt_key_id'] = 'CD2EFD2A'
+default['mysql']['percona']['apt_uri'] = 'http://repo.percona.com/apt'
+default['mysql']['percona']['apt_keyserver'] = 'pgp.mit.edu'
+
 default['mysql']['percona']['tunable']['wsrep_provider'] = '/usr/lib/libgalera_smm.so'
 #default['mysql']['percona']['tunable']['wsrep_cluster_address'] = 'gcomm://'
 default['mysql']['percona']['tunable']['wsrep_sst_method']	='xtrabackup'
@@ -12,4 +15,3 @@ default['mysql']['percona']['tunable']['innodb_locks_unsafe_for_binlog']='1'
 default['mysql']['percona']['tunable']['#wsrep_replicate_myisam']='1'
 default['mysql']['percona']['tunable']['wait_timeout']	='7000'
 default['mysql']['percona']['percona_cluster'] = 'enable'
-end
