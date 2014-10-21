@@ -43,9 +43,13 @@ when 'mac_os_x'
   include_recipe 'homebrew::default'
 end
 
+#unless (node['mysql']['server']['type'] =~ /percona/)
+
 node['mysql']['client']['packages'].each do |name|
   package name
 end
+
+#end
 
 if platform_family?('windows')
   ruby_block 'copy libmysql.dll into ruby path' do
